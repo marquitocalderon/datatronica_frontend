@@ -1,0 +1,40 @@
+<aside id="sidebar"
+   class="fixed z-20 h-full top-0 left-0 pt-16 flex lg:flex flex-shrink-0 flex-col w-64 transition-all duration-500"
+   aria-label="Sidebar" [class.translate-x-0]="showSidebar" [class.-translate-x-full]="!showSidebar">
+   <div class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white pt-0">
+      <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+         <div class="flex-1 px-3 bg-white divide-y space-y-1">
+            <ul class="space-y-2 pb-2">
+               <!-- <li>
+                   <button class="px-4 max-lg:px-16 pr-2 py-2 flex gap bg-blue-950 hover:bg-blue-900 text-white rounded-lg lg:hidden">
+                     Sincronizar    
+                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.651 7.65a7.131 7.131 0 0 0-12.68 3.15M18.001 4v4h-4m-7.652 8.35a7.13 7.13 0 0 0 12.68-3.15M6 20v-4h4"/>
+                     </svg>
+                   </button>
+                </li> -->
+
+               @for (modulo of modulos; track modulo.id_modulo) {
+               @if
+               (modulo.modulo==="SEGURIDAD") {
+                  <app-seguridad></app-seguridad>
+               }
+
+               @if (modulo.modulo==="ASISTENTE") {
+                  <app-casos></app-casos>
+               }
+
+               @if (modulo.modulo==="SOPORTE") {
+                  soporte en proceso
+               }
+
+               @if (modulo.modulo==="USUARIO") {
+                  usuario en proceso
+               }
+
+            }
+            </ul>
+         </div>
+      </div>
+   </div>
+</aside>

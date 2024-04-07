@@ -1,0 +1,31 @@
+<app-post></app-post>
+<div class="w-full  h-[70vh] overflow-auto">
+    <div class="p-0">
+        <div class="overflow-x-auto">
+            <table class="table-auto w-full">
+                <thead class="text-sm font-semibold uppercase text-white bg-gray-900">
+                    <tr>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-left">Nombre PERFIL</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Acciones</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm ">
+                    @for (dato of arregloget; track dato.id_perfil) {
+                    <tr>
+                        <td class="p-2 whitespace-nowrap">
+                            <div class="text-gray-900 dark:text-black">{{dato.nombre_perfil}}</div>
+                        </td>
+                        <td class="p-2 whitespace-nowrap text-center"> <!-- Alineación centrada -->
+                          <app-put [idPerfil]="dato.id_perfil" [datos]="dato.modulosasignados"></app-put>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
