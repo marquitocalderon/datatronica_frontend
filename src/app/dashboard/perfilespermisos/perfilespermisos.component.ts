@@ -8,13 +8,14 @@ import { ServiceService } from '../../core/service/service.service';
   standalone: true,
   imports: [PostComponentPerfiles, PutComponentPerfiles],
   templateUrl: './perfilespermisos.component.html',
-  styleUrl: './perfilespermisos.component.css'
+  styleUrl: './perfilespermisos.component.css',
 })
 export class PerfilespermisosComponent {
-
   constructor(private dataService: ServiceService) {}
-  arregloget: any[] = []
-  
+  arregloget: any[] = [];
+  id_perfil: number = 0;
+  modulosasignados: any[] = [];
+
   ngOnInit(): void {
     this.getData();
   }
@@ -27,8 +28,18 @@ export class PerfilespermisosComponent {
       },
       error: (error) => {
         console.log(error);
-      }
+      },
     });
   }
 
+  enviarmodal(id_perfil: number, modulosasignados: any) {
+    this.id_perfil = id_perfil;
+    this.modulosasignados = modulosasignados;
+    this.estadomodal = !this.estadomodal;
+  }
+
+  estadomodal: boolean = false;
+  abremodal(show: boolean) {
+    this.estadomodal = !this.estadomodal;
+  }
 }

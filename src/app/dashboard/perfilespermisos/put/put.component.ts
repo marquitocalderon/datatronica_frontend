@@ -1,7 +1,8 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ServiceService } from '../../../core/service/service.service';
 import AuthService from '../../../core/auth/auth.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-put',
@@ -35,6 +36,7 @@ export class PutComponentPerfiles {
 
 
   ngOnInit() {
+    initFlowbite();
     // Iterar sobre los datos para establecer el estado inicial de los checkboxes
     this.datos.forEach(modulo => {
       modulo.checked = modulo.activo; // Establecer el estado inicial basado en la propiedad 'activo'
@@ -70,4 +72,15 @@ export class PutComponentPerfiles {
       },
     });
   }
+  
+  //-------------------------------------------------------------------------------------
+
+  @Output() addshowModalEvent = new EventEmitter<boolean>();
+
+  //creamos un metodo para output
+  showmodalclose(show: boolean) {
+    this.addshowModalEvent.emit(show);
+  }
+
+  //-------------------------------------------------------------------------------------
 }
