@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { PostComponentPerfiles } from './post/post.component';
 import { PutComponentPerfiles } from './put/put.component';
 import { ServiceService } from '../../core/service/service.service';
+import { LoandingComponent } from '../components/loanding/loanding.component';
 
 @Component({
   selector: 'app-perfilespermisos',
   standalone: true,
-  imports: [PostComponentPerfiles, PutComponentPerfiles],
+  imports: [PostComponentPerfiles, PutComponentPerfiles,LoandingComponent],
   templateUrl: './perfilespermisos.component.html',
   styleUrl: './perfilespermisos.component.css',
 })

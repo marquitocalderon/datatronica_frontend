@@ -2,11 +2,12 @@ import { Component, OnInit, inject } from '@angular/core';
 
 import { ServiceService } from '../../core/service/service.service';
 import { PostUsuariosComponent } from './post-usuarios/post-usuarios.component';
+import { LoandingComponent } from '../components/loanding/loanding.component';
 
 @Component({
   selector: 'componente-usuarios',
   standalone: true,
-  imports: [PostUsuariosComponent],
+  imports: [PostUsuariosComponent, LoandingComponent],
   templateUrl: './usuarios.component.html',
   styleUrl: './usuarios.component.css'
 })
